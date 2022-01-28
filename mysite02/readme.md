@@ -1,0 +1,1 @@
+actionName이 deleteform인것은 deleteform.jsp로 보내주는 역할만 함
