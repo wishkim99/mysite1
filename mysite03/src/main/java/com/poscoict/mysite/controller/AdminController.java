@@ -6,27 +6,25 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.poscoict.mysite.security.Auth;
 
-@Auth //(role="ADMIN")//안붙이면 USER
+//@Auth //(role="ADMIN")//안붙이면 USER
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
 
-	@ResponseBody
-	@RequestMapping("/main")
+	@RequestMapping("")
 	public String main() {
-		return "AdminController.main()";
+		return "admin/main";
 	}
-	
-	@ResponseBody
+
 	@RequestMapping("/board")
 	public String board() {
-		return "AdminController.board()";
+		return "admin/board";
 	}
 	
-	@ResponseBody
+
 	@RequestMapping("/guestbook")
 	public String guestbook() {
-		return "AdminController.guestbook()";
+		return "admin/guestbook";
 	}
 	
 }
