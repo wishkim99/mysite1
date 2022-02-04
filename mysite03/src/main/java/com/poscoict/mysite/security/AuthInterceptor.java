@@ -25,13 +25,13 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 		//3. Handler Method의 @Auth 받아오기
 		Auth auth=handlerMethod.getMethodAnnotation(Auth.class);
 		
-		//4. Handler Method @Auth가 없다면 Type에 있는지 확인(과제!!!!!!!!)(인증이 필요 없다는 의미)
+//		//4. Handler Method @Auth가 없다면 Type에 있는지 확인(과제!!!!!!!!)(인증이 필요 없다는 의미)
 		if(auth==null) {
 			//한줄이면 됨
-			//return true;
+			auth=handlerMethod.getBeanType().getAnnotation(Auth.class);
+			//Auth라는 클래스이름으로 해당 bean타입을 얻어오겠다/
 		}
-		
-		
+
 		//5. type과 method에 @Auth가 적용이 안되어있는 경우
 		if(auth == null) {
 			return true; //true면 그냥 진행됨
@@ -46,8 +46,18 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 		}
 		
 		UserVo authUser=(UserVo)session.getAttribute("authUser");
-		if(authUser==null) {//null이면 인증이 안되어있다는 의미
+		if(authUser==null) {
+			//session이 없으니까 loginform으로 다시 요청
 			response.sendRedirect(request.getContextPath()+"/user/login");
+			return false;
+		}
+		
+		if(authUser.getRole().equals("ADMIN")) {//null이면 인증이 안되어있다는 의미
+			return true;
+		}
+	
+		if(!auth.role().equals(authUser.getRole())) {//null이면 인증이 안되어있다는 의미
+			response.sendRedirect(request.getContextPath()+"/");
 			return false;
 		}
 		
