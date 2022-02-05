@@ -13,6 +13,7 @@ public class SiteRepository {
 	private SqlSession sqlSession;
 	
 	public boolean update(SiteVo siteVo) {
+		//site.xml에서 mapper namespace="site"로 설정
 		int count = sqlSession.update("site.update", siteVo);
 		return count == 1;
 	}

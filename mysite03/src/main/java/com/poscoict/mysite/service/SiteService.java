@@ -20,6 +20,4 @@ public class SiteService {
 		return siteRepository.findAll();
 	}
 
-
-
 }

@@ -33,7 +33,7 @@ public class AdminController {
 	
 	@RequestMapping("")
 	public String main( Model model) {
-		SiteVo siteVo = siteService.getSite();
+		SiteVo siteVo = siteService.getSite(); //getSite로 정보 받고 siteVo를 메인에다 보냄
 		System.out.println("================================" + siteVo);
 		model.addAttribute("siteVo", siteVo);
 		return "admin/main";
@@ -54,6 +54,7 @@ public class AdminController {
 		String url = fileUploadService.restore(multipartFile);
 		vo.setProfile(url);
 		if(siteService.update(vo)) {
+			//ServletContext 객체는 모든 서블릿이 공유하는 객체
 			servletContext.setAttribute("siteVo", vo); 
 		}
 		
@@ -70,17 +71,6 @@ public class AdminController {
 	public String guestbook() {
 		return "admin/guestbook";
 	}
-	
-//	@RequestMapping(value="/upload", method=RequestMethod.POST)
-//	public String upload(
-//			@RequestParam(value="email", required=true, defaultValue="") String email, 
-//			@RequestParam(value="upload-file") MultipartFile multipartFile,
-//			Model model) {
-//	
-//		String url = fileUploadService.restore(multipartFile);
-//		model.addAttribute("url", url);
-//		
-//		return "result";
-//	}
+
 }
 
