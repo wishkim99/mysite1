@@ -101,7 +101,7 @@ public class UserController {
 		
 		userVo.setNo(authUser.getNo());
 		userService.updateUser(userVo);
-		return "redirect:/";
+		return "redirect:/user/update";
 	}
 //	//@Auth(role="ADMIN") //annotation은 정보를 가지고 있음, 로그인이 되어있는지 아닌지 외부에서 확인
 //	@RequestMapping(value="/update", method=RequestMethod.GET)
