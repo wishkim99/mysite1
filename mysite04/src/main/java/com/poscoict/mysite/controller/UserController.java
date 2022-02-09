@@ -104,43 +104,15 @@ public class UserController {
 		
 		return "redirect:/user/update";
 	}
-//	//@Auth(role="ADMIN") //annotation은 정보를 가지고 있음, 로그인이 되어있는지 아닌지 외부에서 확인
-//	@RequestMapping(value="/update", method=RequestMethod.GET)
-//	public String update(HttpSession session, Model model) { //보안처리
-//		/*access controller*/ //@Auth있으면 체크 안해도 됨
-//		UserVo authUser=(UserVo)session.getAttribute("authUser"); //authUser 꺼냄
-//		if(authUser==null) {
-//			return "redirect:/"; 
-//		}
-//		
-//		Long userNo=authUser.getNo();
-//		UserVo userVo=userService.getUser(userNo); //userVo로 끄집어냄(업데이트로 보내기위해)
-//		model.addAttribute("userVo", userVo);
-//		
-//		return "user/update";
-//	}
-//	
-//	@RequestMapping(value="/update", method=RequestMethod.POST)
-//	public String update(HttpSession session, UserVo userVo) { //보안처리
-//		/*access controller*/
-//		UserVo authUser=(UserVo)session.getAttribute("authUser"); //authUser 꺼냄
-//		if(authUser==null) {
-//			return "redirect:/"; 
-//		}
-//	
-//		userVo.setNo(authUser.getNo());
-//		userService.updateUser(userVo);
-//		//return "redirect:/user/update"; //get방식
-//		authUser=userService.getUser(userVo.getNo()); //업데이트 시켜줌
-//		session.setAttribute("authUser", authUser);
-//		return  "redirect:/"; 
-//		
-//	}
+
+	@RequestMapping(value="/auth", method=RequestMethod.POST)
+	public void auth() {
+		
+	}
 	
-//	@ExceptionHandler(Exception.class)
-//	public String UserControllerExceptionHandler() {
-//		return "error/exception";
-//	}
-	
+	@RequestMapping(value="/logout", method=RequestMethod.GET)
+	public void logout() {
+		
+	}
 	
 }
