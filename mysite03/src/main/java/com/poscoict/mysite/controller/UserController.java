@@ -88,21 +88,20 @@ public class UserController {
 	
 	@Auth
 	@RequestMapping(value="/update", method=RequestMethod.GET)
-	public String update(@AuthUser UserVo authUser, Model model) {
+	public String update( @AuthUser UserVo authUser, Model model) {
 		Long userNo = authUser.getNo();
 		UserVo userVo = userService.getUser(userNo);
 		model.addAttribute("userVo", userVo);
-		
 		return "user/update";
 	}
 	
 	@Auth
 	@RequestMapping(value="/update", method=RequestMethod.POST)
 	public String update(@AuthUser UserVo authUser, UserVo userVo) {
+		
 		userVo.setNo(authUser.getNo());
 		userService.updateUser(userVo);
-		
-		return "redirect:/user/update";
+		return "redirect:/";
 	}
 //	//@Auth(role="ADMIN") //annotation은 정보를 가지고 있음, 로그인이 되어있는지 아닌지 외부에서 확인
 //	@RequestMapping(value="/update", method=RequestMethod.GET)

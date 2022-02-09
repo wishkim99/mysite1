@@ -12,11 +12,9 @@ import com.poscoict.mysite.vo.BoardVo;
 @Repository
 public class BoardRepository {
 	@Autowired
-	private SqlSession sqlSession;
+	private SqlSession sqlSession;	
 	
-	
-	public boolean insert
-	(BoardVo vo) {
+	public boolean insert(BoardVo vo) {
 		int count = sqlSession.insert("board.insert", vo);
 		return count == 1;
 	}
@@ -42,12 +40,7 @@ public class BoardRepository {
 		return count == 1;
 	
 	}
-
-//	public boolean update(Long no) {
-//		boardVo vo = new boardVo();
-//		vo.setNo(no);
-//		return update(vo);	
-//	}	
+	
 	
 	public boolean update(BoardVo vo) {
 		int count = sqlSession.insert("board.modify", vo);

@@ -73,9 +73,6 @@ class BoardService {
 		return map;
 	}
 
-	private boolean increaseGroupOrderNo(BoardVo vo){
-		return false;
-	}
 
 	
 }
