@@ -1,5 +1,4 @@
-package com.poscoict.mysite.app;
-
+package com.poscoict.config.app;
 
 import javax.sql.DataSource;
 
@@ -11,21 +10,23 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 
 @Configuration
-@PropertySource("classpath:/com/poscoict/mysite/config/app/jdbc.properties")
+@PropertySource("classpath:com/poscoict/mysite/config/app/jdbc.properties")
 public class DBConfig {
 	
 	@Autowired
 	private Environment env;
-	//Connection Pool DataSource 
+	
+	// Connection Pool DataSource
 	@Bean
 	public DataSource dataSource() {
-		BasicDataSource dataSource=new BasicDataSource();
+		BasicDataSource dataSource = new BasicDataSource();
 		dataSource.setDriverClassName(env.getProperty("jdbc.driverClassName"));
 		dataSource.setUrl(env.getProperty("jdbc.url"));
 		dataSource.setUsername(env.getProperty("jdbc.username"));
 		dataSource.setPassword(env.getProperty("jdbc.password"));
-		dataSource.setInitialSize(env.getProperty("jdbc.InitialSize", Integer.class));
-		dataSource.setMaxActive(env.getProperty("jdbc.MaxActive", Integer.class));
+		
+		dataSource.setInitialSize(env.getProperty("jdbc.initialSize", Integer.class));
+		dataSource.setMaxActive(env.getProperty("jdbc.maxActive", Integer.class));
 		
 		return dataSource;
 	}
