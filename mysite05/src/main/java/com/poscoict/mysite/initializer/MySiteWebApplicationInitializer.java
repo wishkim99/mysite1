@@ -32,10 +32,10 @@ public class MySiteWebApplicationInitializer extends AbstractAnnotationConfigDis
 	}
 
 //!!!!과제
-//	@Override //DefaultServletHandler를 했기 때문에 절대 안먹힘
-//	protected void customizeRegistration(Dynamic registration) {
-//		registration.setInitParameter("throwExceptionIfNoHandlerFound", "true"); //noHandler라고 되어있지만 Mvc.configurer에 handler 있음=> 따라 걍 404 에러 나옴 
-//	}
+	@Override //DefaultServletHandler를 했기 때문에 절대 안먹힘
+	protected void customizeRegistration(Dynamic registration) {
+		registration.setInitParameter("throwExceptionIfNoHandlerFound", "true"); //noHandler라고 되어있지만 Mvc.configurer에 handler 있음=> 따라 걍 404 에러 나옴 
+	}
 	
 
 }
