@@ -5,6 +5,7 @@
       <artifactId>mysite</artifactId>
       <version>0.0.1-SNAPSHOT</version>
    </parent>
+   
    <artifactId>mysite06</artifactId>
    <packaging>war</packaging>
 

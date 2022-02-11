@@ -46,7 +46,8 @@
 				<version>3.2.1</version>
 				<configuration>
 					<warSourceDirectory>${project.basedir}/src/main/webapp</warSourceDirectory>
-					<failOnMissingWebXml>true</failOnMissingWebXml>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<!-- <failOnMissingWebXml>false</failOnMissingWebXml> => 에러 다 없애고 web.xml지울시 -->
 				</configuration>
 			</plugin>
 		</plugins>
@@ -57,6 +58,7 @@
 		<module>mysite03</module>
 		<module>mysite04</module>
 		<module>mysite05</module>
+		<module>mysite06</module>
 	</modules>
 	
 	
