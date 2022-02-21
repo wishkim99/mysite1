@@ -37,188 +37,35 @@ $(function(){
 	});
 		
 	$("#upload-image").click( function(event) {
-		event.preventDefault();
-		dialogUpload.dialog( "open" );
+		event.preventDefault();			//	클릭했을 때, href로	가는거 막는 것
+		dialogUpload.dialog( "open" );	//	jquery
 	});
 });	
 </script>
 </head>
 <body>
 	<div id="container">
-		<c:import url="/WEB-INF/views/include/header.jsp" />
+		<c:import url="/WEB-INF/views/includes/header.jsp" />
 		<div id="content">
 			<div id="gallery">
 				<div>
-					<h1>갤러리</h1>
+					<h1><img src="${pageContext.request.contextPath }/assets/images/gallery.png">갤러리</h1>
 					<a href="" id="upload-image">이미지 올리기</a>
 				</div>
 				<ul>
-						<li>
-							<a	href="${pageContext.request.contextPath }/assets/gallery-examples/im1.jpg"
-								data-lightbox="gallery"
-								class="image"
-								style="background-image:url('${pageContext.request.contextPath }/assets/gallery-examples/im1.jpg')">&nbsp;</a>
-								
-							<a	href="${pageContext.request.contextPath }/gallery/delete/1"
-								class="del-button"
-								title="삭제">삭제</a>
-						</li>
-						
-						
-						<li>
-							<a	href="${pageContext.request.contextPath }/assets/gallery-examples/im2.jpg'"
-								data-lightbox="gallery"
-								class="image"
-								style="background-image:url('${pageContext.request.contextPath }/assets/gallery-examples/im2.jpg')">&nbsp;</a>
-								
-							<a	href="${pageContext.request.contextPath }/gallery/delete/2"
-								class="del-button"
-								title="삭제">삭제</a>
-						</li>
-						
-						<li>
-							<a	href="${pageContext.request.contextPath }/assets/gallery-examples/im3.jpg"
-								data-lightbox="gallery"
-								class="image"
-								style="background-image:url('${pageContext.request.contextPath }/assets/gallery-examples/im3.jpg')">&nbsp;</a>
-								
-							<a	href="${pageContext.request.contextPath }/gallery/delete/3"
-								class="del-button"
-								title="삭제">삭제</a>
-						</li>
-						
-						<li>
-							<a	href="${pageContext.request.contextPath }/assets/gallery-examples/im4.jpg"
-								data-lightbox="gallery"
-								class="image"
-								style="background-image:url('${pageContext.request.contextPath }/assets/gallery-examples/im4.jpg')">&nbsp;</a>
-								
-							<a	href="${pageContext.request.contextPath }/gallery/delete/4"
-								class="del-button"
-								title="삭제">삭제</a>
-						</li>
-						
-	
-						<li>
-							<a	href="${pageContext.request.contextPath }/assets/gallery-examples/im5.jpg"
-								data-lightbox="gallery"
-								class="image"
-								style="background-image:url('${pageContext.request.contextPath }/assets/gallery-examples/im5.jpg')">&nbsp;</a>
-								
-							<a	href="${pageContext.request.contextPath }/gallery/delete/5"
-								class="del-button"
-								title="삭제">삭제</a>
-						</li>
-						
-						<li>
-							<a	href="${pageContext.request.contextPath }/assets/gallery-examples/im6.jpg"
-								data-lightbox="gallery"
-								class="image"
-								style="background-image:url('${pageContext.request.contextPath }/assets/gallery-examples/im6.jpg')">&nbsp;</a>
-								
-							<a	href="${pageContext.request.contextPath }/gallery/delete/6"
-								class="del-button"
-								title="삭제">삭제</a>
-						</li>
-						
-						<li>
-							<a	href="${pageContext.request.contextPath }/assets/gallery-examples/im7.jpg"
-								data-lightbox="gallery"
-								class="image"
-								style="background-image:url('${pageContext.request.contextPath }/assets/gallery-examples/im7.jpg')">&nbsp;</a>
-								
-							<a	href="${pageContext.request.contextPath }/gallery/delete/7"
-								class="del-button"
-								title="삭제">삭제</a>
-						</li>
-						
-						<li>
-							<a	href="${pageContext.request.contextPath }/assets/gallery-examples/im8.jpg"
-								data-lightbox="gallery"
-								class="image"
-								style="background-image:url('${pageContext.request.contextPath }/assets/gallery-examples/im8.jpg')">&nbsp;</a>
-								
-							<a	href="${pageContext.request.contextPath }/gallery/delete/8"
-								class="del-button"
-								title="삭제">삭제</a>
-						</li>
-						
-						<li>
-							<a	href="${pageContext.request.contextPath }/assets/gallery-examples/im9.jpg"
-								data-lightbox="gallery"
-								class="image"
-								style="background-image:url('${pageContext.request.contextPath }/assets/gallery-examples/im9.jpg')">&nbsp;</a>
-								
-							<a	href="${pageContext.request.contextPath }/gallery/delete/9"
-								class="del-button"
-								title="삭제">삭제</a>
-						</li>
-						
-						<li>
-							<a	href="${pageContext.request.contextPath }/assets/gallery-examples/im10.jpg"
-								data-lightbox="gallery"
-								class="image"
-								style="background-image:url('${pageContext.request.contextPath }/assets/gallery-examples/im10.jpg')">&nbsp;</a>
-								
-							<a	href="${pageContext.request.contextPath }/gallery/delete/10"
-								class="del-button"
-								title="삭제">삭제</a>
-						</li>
-						
-						<li>
-							<a	href="${pageContext.request.contextPath }/assets/gallery-examples/im11.jpg"
-								data-lightbox="gallery"
-								class="image"
-								style="background-image:url('${pageContext.request.contextPath }/assets/gallery-examples/im11.jpg')">&nbsp;</a>
-								
-							<a	href="${pageContext.request.contextPath }/gallery/delete/11"
-								class="del-button"
-								title="삭제">삭제</a>
-						</li>
-						
-						<li>
-							<a	href="${pageContext.request.contextPath }/assets/gallery-examples/im12.jpg"
-								data-lightbox="gallery"
-								class="image"
-								style="background-image:url('${pageContext.request.contextPath }/assets/gallery-examples/im12.jpg')">&nbsp;</a>
-								
-							<a	href="${pageContext.request.contextPath }/gallery/delete/12"
-								class="del-button"
-								title="삭제">삭제</a>
-						</li>																														
-		
-						<li>
-							<a	href="${pageContext.request.contextPath }/assets/gallery-examples/im13.jpg"
-								data-lightbox="gallery"
-								class="image"
-								style="background-image:url('${pageContext.request.contextPath }/assets/gallery-examples/im13.jpg')">&nbsp;</a>
-								
-							<a	href="${pageContext.request.contextPath }/gallery/delete/13"
-								class="del-button"
-								title="삭제">삭제</a>
-						</li>
-						
-						<li>
-							<a	href="${pageContext.request.contextPath }/assets/gallery-examples/im14.jpg"
-								data-lightbox="gallery"
-								class="image"
-								style="background-image:url('${pageContext.request.contextPath }/assets/gallery-examples/im14.jpg')">&nbsp;</a>
-								
-							<a	href="${pageContext.request.contextPath }/gallery/delete/14"
-								class="del-button"
-								title="삭제">삭제</a>
-						</li>
-						
-						<li>
-							<a	href="${pageContext.request.contextPath }/assets/gallery-examples/im15.jpg"
-								data-lightbox="gallery"
-								class="image"
-								style="background-image:url('${pageContext.request.contextPath }/assets/gallery-examples/im15.jpg')">&nbsp;</a>
-								
-							<a	href="${pageContext.request.contextPath }/gallery/delete/15"
-								class="del-button"
-								title="삭제">삭제</a>
-						</li>																																				
+						<c:forEach items="${list }" var="vo">
+							<li>
+								<a	href="${pageContext.request.contextPath }${vo.url}"
+									data-lightbox="gallery"
+									data-title="${vo.comments }"
+									class="image"
+									style="background-image:url('${pageContext.request.contextPath }${vo.url}')">&nbsp;</a>
+								<!--  -->
+								<a	href="${pageContext.request.contextPath }/gallery/delete/${vo.no}"
+									class="del-button"
+									title="삭제">삭제</a>
+							</li>
+						</c:forEach>																																			
 				</ul>	
 			</div>
 
@@ -235,10 +82,10 @@ $(function(){
   				</form>
 			</div>
 		</div>
-		<c:import url="/WEB-INF/views/include/navigation.jsp">
+		<c:import url="/WEB-INF/views/includes/navigation.jsp">
 			<c:param name="menu" value="gallery"/>
 		</c:import>
-		<c:import url="/WEB-INF/views/include/footer.jsp" />
+		<c:import url="/WEB-INF/views/includes/footer.jsp" />
 	</div>
 </body>
 </html>
