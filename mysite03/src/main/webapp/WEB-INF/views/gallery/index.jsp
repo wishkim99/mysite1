@@ -53,7 +53,7 @@ $(function(){
 					<a href="" id="upload-image">이미지 올리기</a>
 				</div>
 				<ul>
-						<c:forEach items="${list }" var="vo">
+						<c:forEach items="${list}" var="vo">
 							<li>
 								<a	href="${pageContext.request.contextPath }${vo.url}"
 									data-lightbox="gallery"
