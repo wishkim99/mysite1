@@ -32,4 +32,9 @@ public class UserService {//userService 안에서 레퍼지토리 사용할 것
 		// TODO Auto-generated method stub
 		userRepository.update(userVo);
 	}
+	
+	public UserVo getUser(String email) {
+		// TODO Auto-generated method stub
+		return userRepository.findByEmail(email);
+	}
 }

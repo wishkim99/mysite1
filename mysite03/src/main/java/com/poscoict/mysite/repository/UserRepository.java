@@ -40,5 +40,10 @@ public class UserRepository {
 //		
 //		return vo;
 	return sqlSession.selectOne("user.findByEmailAndPassword", map);
+	}
+
+	public UserVo findByEmail(String email) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("user.findByEmail", email);
 	}	
 }

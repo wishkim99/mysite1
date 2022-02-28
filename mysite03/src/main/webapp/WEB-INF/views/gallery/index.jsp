@@ -17,7 +17,7 @@
 <script type="text/javascript">
 $(function(){
 	// 업로드 다이알로그
-	var dialogUpload = $( "#dialog-upload-form" ).dialog({
+	var dialogUpload = $( "#dialog-upload-form" ).dialog({ //다이알로그라는 api 호출
 		autoOpen: false,
 		height: 280,
 		width: 300,
