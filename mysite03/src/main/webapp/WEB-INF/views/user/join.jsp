@@ -37,7 +37,7 @@ $(function() {
 		}
 		
 		// 4. 비밀번호 유효성(empty) 체크
-		if($("#password").val() === ""){
+		if($("#password").val() === ''){
 			alert("비밀번호가 비어 있습니다.");
 			$("#password").focus();
 			return;
