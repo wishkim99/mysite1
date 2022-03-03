@@ -1,11 +1,5 @@
 package com.poscoict.mysite.repository;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,17 +16,14 @@ public class GuestbookRepository {
 	private SqlSession sqlSession;
 
 	public List<GuestbookVo> findAll() {
-//		List<GuestbookVo> list = sqlSession.selectList("guestbook.findAll");
-//		return list;
 		return sqlSession.selectList("guestbook.findAll");
 
 	}
 	
 	public List<GuestbookVo> findBySn(Long no) {
 		if(no==-1) {
-			//no += 5;
-			//return sqlSession.selectList("guestbook.findAll");
 			return sqlSession.selectList("guestbook.findByLastSn");
+			
 		}
 		
 		return sqlSession.selectList("guestbook.findBySn",no);

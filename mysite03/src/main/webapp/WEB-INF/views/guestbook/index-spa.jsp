@@ -20,6 +20,7 @@ pageContext.setAttribute("newline", "\n");
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
 var no=-1;
+//var no=$("#list-guestbook li").data("no")
 var render = function(vo) {
 	console.log("render");
 	var html = 
@@ -34,9 +35,12 @@ var render = function(vo) {
 }
 
 var fetch = function() {
-	console.log("fetch");
+	//no = $("#list-guestbook li:last-child").data("no");
+	console.log(no);
 	// if$("#list-guestbook").length =0  
 	//var no=$("#list-guestbook li").data("no")
+	//no -= 3;
+	
 	$.ajax({
 		url: '${pageContext.request.contextPath }/api/guestbook/list/'+no,
 		type: 'get',
@@ -52,10 +56,11 @@ var fetch = function() {
 			for(var i = 0; i < response.data.length; i++) {
 				var vo = response.data[i];
 				var html = render(vo);
-				no += 3;
+				
 				$("#list-guestbook").append(html);
-				startNo  = response.data[i].no;
+				//startNo  = response.data[i].no;
 			}
+				no = $("#list-guestbook li:last-child").data("no");
 		}
 	});	
 }
@@ -147,6 +152,7 @@ $(function() {
 	fetch();
 	
 	$(window).scroll(function() {
+		
 		var $window = $(this);
 		var $document = $(document);
 		var windowHeight = $window.height();
@@ -154,7 +160,7 @@ $(function() {
 		var scrollTop = $window.scrollTop();
 		
 		if (scrollTop + windowHeight == documentHeight) {
-		
+			
 			fetch();
 		}
 	});
