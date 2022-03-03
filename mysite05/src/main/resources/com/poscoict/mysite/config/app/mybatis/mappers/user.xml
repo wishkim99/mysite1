@@ -8,12 +8,20 @@
 		]]>
 	</select>
 
-	<select id="findByEmailAndPassword" parameterType="map" resultType="uservo">
+	<select id="findByEmail" parameterType="string"
+		resultType="uservo">
+		<![CDATA[
+		select no from user where email=#{email }
+		]]>
+	</select>
+
+	<select id="findByEmailAndPassword" parameterType="map"
+		resultType="uservo">
 		<![CDATA[
 		select no, name, role from user where email=#{e } and password=#{p }
 		]]>
 	</select>
-	
+
 	<insert id="insert" parameterType="uservo">
 		<![CDATA[
 		insert 
@@ -21,22 +29,22 @@
 		values (null, #{name }, #{email }, #{password }, #{gender }, now(), 'USER')
 		]]>
 	</insert>
-	
+
 	<update id="update" parameterType="uservo">
 		<choose>
 			<when test="password == null or '' == password">
 				<![CDATA[
 				update user set name=#{name }, gender=#{gender } where no=#{no }
-				]]>	
+				]]>
 			</when>
 			<otherwise>
 				<![CDATA[
 				update user set name=#{name }, gender=#{gender }, password=#{password } where no=#{no }
-				]]>	
+				]]>
 			</otherwise>
 		</choose>
 	</update>
-	
+
 	<update id="update2" parameterType="uservo">
 		<![CDATA[
 		update user
@@ -44,10 +52,10 @@
 		          gender=#{gender }
 		]]>
 		<if test="password != null and '' !=password">
-				 ,password=#{password }	
+			,password=#{password }
 		</if>		          
 		<![CDATA[
 		 where no=#{no }
-		]]>	
-	</update>			
+		]]>
+	</update>
 </mapper>

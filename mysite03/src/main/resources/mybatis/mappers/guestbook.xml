@@ -22,6 +22,26 @@
 		]]>
 	</select>
 	
+	<select id="findBySn" parameterType="long" resultType="guestbookvo">
+		<![CDATA[
+	select no, name, date_format(reg_date, '%Y-%m-%d')  as regDate, message
+	from guestbook
+    where no<#{no}
+	order by no desc
+    limit 0,3
+		]]>
+	</select>
+	
+	<select id="findByLastSn" resultType="guestbookvo">
+	<![CDATA[
+	select no, name, date_format(reg_date, '%Y-%m-%d')  as regDate, message
+	from guestbook
+	order by no desc
+    limit 0,3;
+		]]>
+	</select>
+
+	
 	<delete id="delete" parameterType="map">
 		<![CDATA[
 		 delete from guestbook where no=#{no} and password=#{password}

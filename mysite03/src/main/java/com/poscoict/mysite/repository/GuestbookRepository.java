@@ -27,14 +27,18 @@ public class GuestbookRepository {
 		return sqlSession.selectList("guestbook.findAll");
 
 	}
+	
+	public List<GuestbookVo> findBySn(Long no) {
+		if(no==-1) {
+			//no += 5;
+			//return sqlSession.selectList("guestbook.findAll");
+			return sqlSession.selectList("guestbook.findByLastSn");
+		}
+		
+		return sqlSession.selectList("guestbook.findBySn",no);
 
-//	public Boolean delete(Long no, String password) {
-//		GuestbookVo vo = new GuestbookVo();
-//		vo.setNo(no);
-//		vo.setPassword(password);
-//		
-//		return delete(vo);	
-//	}	
+	}
+
 	public int delete(Long no, String password) {
 		Map<String, Object> map = new HashMap<>(); // object는 string, long다 받음
 		map.put("no", no); // 이름 값,

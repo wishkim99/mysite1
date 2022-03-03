@@ -29,15 +29,15 @@ public class UserRepository {
 		return sqlSession.selectOne("user.findByNo", userNo);
 	}
 
-	public UserVo findByEmailAndPassword(String email, String password) throws UserRepositoryException { //aop는 스탑워치 적용할 경우 코드 변경 안해도 됨! 그러나 지금은 함
-
+	public UserVo findByEmailAndPassword(String email, String password) throws UserRepositoryException {
 		Map<String, String> map = new HashMap<>();
 		map.put("e", email);
 		map.put("p", password);
 		
-//		UserVo vo=sqlSession.selectOne("user.findByEmailAndPassword", map);
-//		
-//		return vo;
-	return sqlSession.selectOne("user.findByEmailAndPassword", map);
+		return sqlSession.selectOne("user.findByEmailAndPassword", map);
+	}
+
+	public UserVo findByEmail(String email) {
+		return sqlSession.selectOne("user.findByEmail", email);
 	}	
 }

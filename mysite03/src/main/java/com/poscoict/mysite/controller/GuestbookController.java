@@ -18,6 +18,11 @@ import com.poscoict.mysite.vo.GuestbookVo;
 public class GuestbookController {
 	@Autowired
 	GuestbookService guestbookService;
+
+	@RequestMapping("/spa")
+	public String spa() {
+		return "guestbook/index-spa";
+	}
 	
 	@RequestMapping("")
 	public String index(Model model) {
@@ -28,9 +33,10 @@ public class GuestbookController {
 
 	@RequestMapping(value="/add", method=RequestMethod.POST)
 	public String add(GuestbookVo vo) {
-		System.out.println("guestbookvo: "+vo);
+		System.out.println("guestbookvo:" + vo);
 		guestbookService.addMessage(vo);
-		System.out.println("guestbookvo: "+vo);
+		System.out.println("guestbookvo:" + vo);
+		
 		return "redirect:/guestbook";
 	}
 	
@@ -41,9 +47,7 @@ public class GuestbookController {
 	}
 
 	@RequestMapping(value="/delete/{no}", method=RequestMethod.POST)
-	public String delete(
-			@PathVariable("no") Long no, 
-			@RequestParam(value="password", required=true, defaultValue="") String password) {
+	public String delete(@PathVariable("no") Long no, @RequestParam(value="password", required=true, defaultValue="") String password) {
 		guestbookService.deleteMessage(no, password);
 		return "redirect:/guestbook";
 	}
